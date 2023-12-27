@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'search.dart';
 import 'profile.dart';
+import 'book.dart';
 
 class Navbar extends StatefulWidget{
   @override
@@ -14,6 +15,10 @@ class _NavbarState extends State<Navbar>{
     Icons.book,
     Icons.person_2
   ];
+
+  void forceIndex(idx){
+    index = idx;
+  }
 
   static final List<IconData> icon_outlined = [
     Icons.home_outlined,
@@ -81,6 +86,12 @@ class _NavbarState extends State<Navbar>{
                   setState(() {
                     index = 2;
                   });
+                  Navigator.pushReplacement<void, void>(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) => Book(),
+                    ),
+                  );
                 },
                 child: Icon(
                   icons(2),
@@ -140,6 +151,13 @@ class _NavbarState extends State<Navbar>{
       return icon_outlined[idx-1];
     }
 
+  }
+
+}
+class Force{
+
+  static void force(idx){
+    _NavbarState.index = idx;
   }
 
 }

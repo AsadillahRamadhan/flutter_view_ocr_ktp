@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'navbar.dart';
-import 'book.dart';
 
-class Search extends StatefulWidget{
+class Book extends StatefulWidget{
   @override
-  State<Search> createState() => _SearchState();
+  State<Book> createState() => _BookState();
 }
 
-class _SearchState extends State<Search>{
+class _BookState extends State<Book>{
   TextEditingController _searchController = TextEditingController();
   @override
   Widget build(BuildContext context){
@@ -121,10 +120,18 @@ class _SearchState extends State<Search>{
                                     width: 70,),
                                   ),           
                                   LimitedBox(
-                                    maxWidth: MediaQuery.of(context).size.width * 6 / 12,
+                                    maxWidth: MediaQuery.of(context).size.width * 7 / 12,
                                     child: Column(
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
+                                        Align(
+                                          alignment: Alignment.topLeft,
+                                          child: Text('Dikembalikan Sebelum: 12:00 AM, 28 Desember 2023',
+                                          style: TextStyle(
+                                            color: Colors.red,
+                                            fontSize: 8
+                                          ),),
+                                        ),
                                         Align(
                                           alignment: Alignment.topLeft,
                                           child: Text('Pengantar Teknologi Informasi',
@@ -148,34 +155,7 @@ class _SearchState extends State<Search>{
                                         
                                       ],
                                     ),
-                                  ),
-                                  LimitedBox(
-                                    maxWidth: MediaQuery.of(context).size.width * 3 / 12,
-                                    child: GestureDetector(
-                                      onTap: (){
-                                        setState((){
-                                          Force.force(2);
-                                          Navigator.pushReplacement<void, void>(
-                                            context,
-                                            MaterialPageRoute<void>(
-                                              builder: (BuildContext context) => Book(),
-                                            ),
-                                          );
-                                        });
-                                      },
-                                      child: Container(
-                                        height: 40,
-                                        width: 40,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(20),
-                                          color: Colors.blue
-                                        ),
-                                        child: Icon(Icons.add, color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                  
+                                  ),     
                                 ],
                               ),
                     ),
